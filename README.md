@@ -111,7 +111,7 @@ _________________
 _________________
 
 
-### Visualization of Star Schema
+### Visualization of Fact Dimensional Model
 
 **A visual representation of the star schema:**
 
