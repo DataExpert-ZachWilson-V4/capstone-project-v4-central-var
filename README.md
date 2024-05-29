@@ -191,9 +191,9 @@ The predictive analytics component will leverage machine learning to forecast da
 
 #### Overview
 
-Component 4 focuses on developing and deploying machine learning models to predict stock prices. Using the fact-dimensional model, the machine learning pipeline will leverage historical and real-time data to train models and make predictions. The following steps outline the process for building this component.
+Details of developing and deploying machine learning models to predict stock prices. Using the fact-dimensional model, the machine learning pipeline will leverage historical and real-time data to train models and make predictions. The following are the detailed steps outlining the process for building this ML Model.
 
-#### Steps to Build Machine Learning Component
+#### Steps to Build Machine Learning model
 
 1. **Data Extraction:**
    - Extract data from the Trino data warehouse, particularly from the `Fact_Stock_Prices` table, along with relevant attributes from the `Dim_Date` and `Dim_Stock` tables.
@@ -222,3 +222,80 @@ Component 4 focuses on developing and deploying machine learning models to predi
 6. **Visualization and Analytics:**
    - Use Tableau to visualize model predictions and compare them with actual stock prices.
    - Create dashboards to display prediction accuracy, model performance metrics, and trends.
+  
+
+
+### Prediction Table Design for Visualization
+
+The prediction table will store the results of the machine learning model predictions, which can then be visualized in a Tableau dashboard. This table will include the predicted stock prices along with the actual prices for comparison, as well as relevant metadata to facilitate detailed analysis and visualization.
+
+#### Table: `Fact_Predicted_Stock_Prices`
+
+**Columns:**
+
+1. **Prediction_ID (PK)** - A unique identifier for each prediction record.
+2. **Date_Key (FK)** - Foreign key referencing the `Dim_Date` table.
+3. **Stock_Key (FK)** - Foreign key referencing the `Dim_Stock` table.
+4. **Source_Key (FK)** - Foreign key referencing the `Dim_Source` table.
+5. **Predicted_Date** - The date for which the prediction is made.
+6. **Predicted_Open_Price** - The predicted opening price of the stock.
+7. **Predicted_Close_Price** - The predicted closing price of the stock.
+8. **Predicted_High_Price** - The predicted highest price of the stock.
+9. **Predicted_Low_Price** - The predicted lowest price of the stock.
+10. **Actual_Open_Price** - The actual opening price of the stock (if available).
+11. **Actual_Close_Price** - The actual closing price of the stock (if available).
+12. **Actual_High_Price** - The actual highest price of the stock (if available).
+13. **Actual_Low_Price** - The actual lowest price of the stock (if available).
+14. **Prediction_Model** - The model used for making the prediction (e.g., ARIMA, LSTM).
+15. **Prediction_Timestamp** - The timestamp when the prediction was made.
+
+### Visualization Table Schema
+
+```plaintext
+Fact_Predicted_Stock_Prices
++------------------------+--------------+
+| Column                 | Data Type    |
++------------------------+--------------+
+| Prediction_ID (PK)     | INT          |
+| Date_Key (FK)          | INT          |
+| Stock_Key (FK)         | INT          |
+| Source_Key (FK)        | INT          |
+| Predicted_Date         | DATE         |
+| Predicted_Open_Price   | FLOAT        |
+| Predicted_Close_Price  | FLOAT        |
+| Predicted_High_Price   | FLOAT        |
+| Predicted_Low_Price    | FLOAT        |
+| Actual_Open_Price      | FLOAT        |
+| Actual_Close_Price     | FLOAT        |
+| Actual_High_Price      | FLOAT        |
+| Actual_Low_Price       | FLOAT        |
+| Prediction_Model       | VARCHAR      |
+| Prediction_Timestamp   | TIMESTAMP    |
++------------------------+--------------+
+```
+
+### Metadata
+
+1. **Prediction_ID:** A unique identifier for each prediction record, ensuring each entry can be uniquely referenced.
+2. **Date_Key:** Links to the `Dim_Date` table, allowing for time-based aggregation and filtering.
+3. **Stock_Key:** Links to the `Dim_Stock` table, providing contextual information about the stock.
+4. **Source_Key:** Links to the `Dim_Source` table, indicating the source of the data.
+5. **Predicted_Date:** The specific date for which the prediction is made, crucial for time-series analysis.
+6. **Predicted_Open_Price:** The predicted opening price for the stock.
+7. **Predicted_Close_Price:** The predicted closing price for the stock.
+8. **Predicted_High_Price:** The predicted highest price for the stock during the day.
+9. **Predicted_Low_Price:** The predicted lowest price for the stock during the day.
+10. **Actual_Open_Price:** The actual opening price for the stock (if known at the time of visualization).
+11. **Actual_Close_Price:** The actual closing price for the stock (if known at the time of visualization).
+12. **Actual_High_Price:** The actual highest price for the stock during the day (if known at the time of visualization).
+13. **Actual_Low_Price:** The actual lowest price for the stock during the day (if known at the time of visualization).
+14. **Prediction_Model:** The model used to make the prediction, which helps in assessing the performance of different models.
+15. **Prediction_Timestamp:** The time when the prediction was generated, useful for tracking and audit purposes.
+
+### Visualization to be done on Prediction Table
+
+In Tableau, this table can be used to create various visualizations, such as:
+
+1. **Comparison Charts:** Actual vs. predicted prices (e.g., line charts or bar charts) for different stocks over time.
+2. **Error Analysis:** Visualizing prediction errors to identify patterns or anomalies.
+
