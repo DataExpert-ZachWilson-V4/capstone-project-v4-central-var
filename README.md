@@ -29,9 +29,6 @@ The predictive analytics component will leverage machine learning to forecast da
 
 - **Economic Indicators:** We may integrate data from the Federal Reserve Economic Data (FRED) API to enrich the analysis with macroeconomic indicators such as interest rates, inflation rates, and GDP growth, providing a more comprehensive market outlook. (https://fred.stlouisfed.org/docs/api/fred/)
 
-***
-
----
 
 _________________
 
@@ -69,7 +66,7 @@ _________________
 - **Monitoring and Alerts:** Implement monitoring and alerting mechanisms to ensure pipeline health and timely data updates.
 
 
-
+_________________
 
 ### Tentative data model based on Star Schema:
 
@@ -112,6 +109,7 @@ _________________
 - **Source_Type (Static/Dynamic)**
 
 
+_________________
 
 
 ### Visualization of Star Schema
@@ -163,7 +161,7 @@ _________________
 ```
 
               
-
+_________________
 
 
 ### What each table represents?
@@ -185,6 +183,7 @@ _________________
    - `Source_Key` is the primary key.
 
 
+_________________
 
 
 ### What is Usage of each table in the model
@@ -199,6 +198,7 @@ _________________
     Troubleshooting: Identifying issues with data ingestion from specific sources.
 
 
+_________________
 
 
 ### Machine Learning Model
@@ -238,6 +238,7 @@ Details of developing and deploying machine learning models to predict stock pri
    - Create dashboards to display prediction accuracy, model performance metrics, and trends.
   
 
+_________________
 
 
 ### Prediction Table Design for Visualization
