@@ -29,7 +29,11 @@ The predictive analytics component will leverage machine learning to forecast da
 
 - **Economic Indicators:** We may integrate data from the Federal Reserve Economic Data (FRED) API to enrich the analysis with macroeconomic indicators such as interest rates, inflation rates, and GDP growth, providing a more comprehensive market outlook. (https://fred.stlouisfed.org/docs/api/fred/)
 
+***
 
+---
+
+_________________
 
 
 ## Components to be Built
