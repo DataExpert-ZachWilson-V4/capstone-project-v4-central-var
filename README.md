@@ -107,6 +107,8 @@ The predictive analytics component will leverage machine learning to forecast da
 
 **A visual representation of the star schema:**
 
+
+```plaintext
               +--------------------+
               |     Dim_Date       |
               +--------------------+
@@ -147,6 +149,9 @@ The predictive analytics component will leverage machine learning to forecast da
               | Source_Name        |  
               | Source_Type        |  
               +--------------------+  
+```
+
+              
 
 
 ### What key table represents?
