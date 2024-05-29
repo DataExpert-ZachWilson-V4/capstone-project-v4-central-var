@@ -185,7 +185,7 @@ _________________
 _________________
 
 
-### What is Usage of each table in the model
+### What is Usage of each table in the model?
 
 - **Fact_Stock_Prices** table allows for detailed analysis of stock prices and volumes, linked by date and stock.
 - **Dim_Date** table enables slicing and dicing data by different time periods.
