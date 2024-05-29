@@ -21,9 +21,8 @@ The predictive analytics component will leverage machine learning to forecast da
 ## Data Sources
 
 1. **Dynamic Data Source:** Real-time financial market data from Alpha Vantage API. (https://www.alphavantage.co)
-2. **Static Data Source:**
-    a. Historical stock market data from Yahoo Finance. (https://help.yahoo.com/kb/SLN2311.html)
-    b. Historical data provides up to 10 years of daily historical stock prices and volumes for each stock - nasdaq. (https://www.nasdaq.com/market-activity/quotes/historical)
+2. **Static Data Source1:** Historical stock market data from Yahoo Finance. (https://help.yahoo.com/kb/SLN2311.html)
+3. **Static Data Source2:** Historical data provides up to 10 years of daily historical stock prices and volumes for each stock - nasdaq. (https://www.nasdaq.com/market-activity/quotes/historical)
 
 ### Additional Data Source (If time Permits)
 
