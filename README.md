@@ -69,6 +69,7 @@ The predictive analytics component will leverage machine learning to forecast da
 
 - **Date_Key (FK)**
 - **Stock_Key (FK)**
+- **Source_Key (FK)**
 - **Open_Price**
 - **Close_Price**
 - **High_Price**
