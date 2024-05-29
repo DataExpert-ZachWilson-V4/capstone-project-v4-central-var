@@ -154,7 +154,7 @@ The predictive analytics component will leverage machine learning to forecast da
               
 
 
-### What key table represents?
+### What each table represents?
 
 1. **Fact Table: Fact_Stock_Prices**
    - Central table containing quantitative data about stock prices and volumes.
@@ -172,7 +172,7 @@ The predictive analytics component will leverage machine learning to forecast da
    - Dimension table containing information about the data sources (e.g., Alpha Vantage for dynamic data, Yahoo Finance for static data).
    - `Source_Key` is the primary key.
 
-### Usage
+### What is Usage of each table in the model
 
 - **Fact_Stock_Prices** table allows for detailed analysis of stock prices and volumes, linked by date and stock.
 - **Dim_Date** table enables slicing and dicing data by different time periods.
@@ -183,3 +183,42 @@ The predictive analytics component will leverage machine learning to forecast da
     Source-Specific Analysis: Comparing data trends from different sources.
     Troubleshooting: Identifying issues with data ingestion from specific sources.
 
+
+
+
+
+### Machine Learning Model
+
+#### Overview
+
+Component 4 focuses on developing and deploying machine learning models to predict stock prices. Using the fact-dimensional model, the machine learning pipeline will leverage historical and real-time data to train models and make predictions. The following steps outline the process for building this component.
+
+#### Steps to Build Machine Learning Component
+
+1. **Data Extraction:**
+   - Extract data from the Trino data warehouse, particularly from the `Fact_Stock_Prices` table, along with relevant attributes from the `Dim_Date` and `Dim_Stock` tables.
+   - Filter and aggregate the data based on the prediction requirements (e.g., predicting next day's high/low prices).
+
+2. **Data Preparation:**
+   - Preprocess the data to handle missing values, outliers, and ensure data consistency.
+   - Create additional features (e.g., moving averages, volatility) based on historical stock prices.
+   - Normalize/standardize the data for better model performance.
+
+3. **Feature Engineering:**
+   - Generate time-series features such as lagged values, rolling means, and differences.
+   - Incorporate external features if needed, such as macroeconomic indicators or news sentiment scores.
+
+4. **Model Development:**
+   - Split the data into training, validation, and test sets.
+   - Train machine learning models (e.g., ARIMA, LSTM, XGBoost) on the training set.
+   - Perform hyperparameter tuning and cross-validation to optimize model performance.
+   - Evaluate model performance using appropriate metrics (e.g., RMSE, MAE).
+
+5. **Model Deployment:**
+   - Deploy the trained model using a platform like AWS SageMaker.
+   - Set up an inference pipeline to make real-time predictions using incoming data.
+   - Integrate the predictions back into the data warehouse or a dedicated prediction table for visualization and analysis.
+
+6. **Visualization and Analytics:**
+   - Use Tableau to visualize model predictions and compare them with actual stock prices.
+   - Create dashboards to display prediction accuracy, model performance metrics, and trends.
