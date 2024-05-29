@@ -30,6 +30,8 @@ The predictive analytics component will leverage machine learning to forecast da
 - **Economic Indicators:** We may integrate data from the Federal Reserve Economic Data (FRED) API to enrich the analysis with macroeconomic indicators such as interest rates, inflation rates, and GDP growth, providing a more comprehensive market outlook. (https://fred.stlouisfed.org/docs/api/fred/)
 
 
+
+
 ## Components to be Built
 
 ### 1. Data Ingestion and Storage
@@ -61,6 +63,8 @@ The predictive analytics component will leverage machine learning to forecast da
 
 - **Scheduling:** We will use Apache Airflow to automate recurring data pipelines and data quality checks.
 - **Monitoring and Alerts:** Implement monitoring and alerting mechanisms to ensure pipeline health and timely data updates.
+
+
 
 
 ### Tentative data model based on Star Schema:
@@ -102,6 +106,9 @@ The predictive analytics component will leverage machine learning to forecast da
 - **Source_Key (PK)**
 - **Source_Name**
 - **Source_Type (Static/Dynamic)**
+
+
+
 
 ### Visualization of Star Schema
 
@@ -154,6 +161,7 @@ The predictive analytics component will leverage machine learning to forecast da
               
 
 
+
 ### What each table represents?
 
 1. **Fact Table: Fact_Stock_Prices**
@@ -172,6 +180,9 @@ The predictive analytics component will leverage machine learning to forecast da
    - Dimension table containing information about the data sources (e.g., Alpha Vantage for dynamic data, Yahoo Finance for static data).
    - `Source_Key` is the primary key.
 
+
+
+
 ### What is Usage of each table in the model
 
 - **Fact_Stock_Prices** table allows for detailed analysis of stock prices and volumes, linked by date and stock.
@@ -182,7 +193,6 @@ The predictive analytics component will leverage machine learning to forecast da
     Data Quality Analysis: Understanding and validating the consistency and reliability of data from different sources.
     Source-Specific Analysis: Comparing data trends from different sources.
     Troubleshooting: Identifying issues with data ingestion from specific sources.
-
 
 
 
@@ -223,6 +233,7 @@ Details of developing and deploying machine learning models to predict stock pri
    - Use Tableau to visualize model predictions and compare them with actual stock prices.
    - Create dashboards to display prediction accuracy, model performance metrics, and trends.
   
+
 
 
 ### Prediction Table Design for Visualization
